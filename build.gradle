@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
 }
 
 group 'com.leodots'
@@ -11,8 +12,6 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'org.javacord:javacord:3.1.2'
 }
 
@@ -22,7 +21,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Main-Class': "Bot"
+        attributes 'Main-Class': 'Bot'
     }
 }
 
