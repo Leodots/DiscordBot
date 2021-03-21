@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DiscordBot">
+    <output-path>$PROJECT_DIR$/out/artifacts/DiscordBot</output-path>
+    <root id="archive" name="DiscordBot.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="DiscordBot.main" />
+      <element id="library" level="project" name="Gradle: com.codahale:xsalsa20poly1305:0.10.1" />
+      <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+      <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.3" />
+      <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.9.3" />
+      <element id="library" level="project" name="Gradle: com.neovisionaries:nv-websocket-client:2.6" />
+      <element id="library" level="project" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.9.1" />
+      <element id="library" level="project" name="Gradle: com.squareup.okhttp3:okhttp:3.9.1" />
+      <element id="library" level="project" name="Gradle: com.squareup.okio:okio:1.14.0" />
+      <element id="library" level="project" name="Gradle: io.vavr:vavr-match:0.10.1" />
+      <element id="library" level="project" name="Gradle: io.vavr:vavr:0.10.1" />
+      <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-api:2.11.0" />
+      <element id="library" level="project" name="Gradle: org.apache.logging.log4j:log4j-core:2.11.0" />
+      <element id="library" level="project" name="Gradle: org.apiguardian:apiguardian-api:1.1.0" />
+      <element id="library" level="project" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.59" />
+      <element id="library" level="project" name="Gradle: org.javacord:javacord-api:3.1.2" />
+      <element id="library" level="project" name="Gradle: org.javacord:javacord-core:3.1.2" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.6.0" />
+      <element id="library" level="project" name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.6.0" />
+      <element id="library" level="project" name="Gradle: org.junit.platform:junit-platform-commons:1.6.0" />
+      <element id="library" level="project" name="Gradle: org.junit.platform:junit-platform-engine:1.6.0" />
+      <element id="library" level="project" name="Gradle: org.opentest4j:opentest4j:1.2.0" />
+    </root>
+  </artifact>
+</component>

@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.leodots'
@@ -19,3 +20,11 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': "Bot"
+    }
+}
+
+mainClassName = 'Bot'
