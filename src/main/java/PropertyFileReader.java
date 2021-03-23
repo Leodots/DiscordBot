@@ -17,6 +17,7 @@ public class PropertyFileReader {
 
             if(inputStream != null) {
                 prop.load(inputStream);
+                System.out.println("Token loaded.");
             } else {
                 throw new FileNotFoundException("Config file not found.");
             }

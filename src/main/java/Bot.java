@@ -9,8 +9,8 @@ import java.util.Optional;
 
 public class Bot {
 
-    private static final String idChannel = "790661190174507018";
-    private static final String ruleProdutores = "<@&790656053792079903>";
+    private static final String idChannel = "790661190174507018"; //Channel Text - Produtores
+    private static final String ruleProdutores = "<@&790656053792079903>"; //Rule - Produtores
 
     public static void main(String[] args) {
 
@@ -27,26 +27,77 @@ public class Bot {
         Thread thread = new Thread(() -> {
             while (true) {
                 Calendar calendar = Calendar.getInstance();
+
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int hourSystem = calendar.get(Calendar.HOUR_OF_DAY);
+                int horaMensagem = -1;
+                int diaMensagem = -1;
+                String message = "";
 
-                //Quarta, primeiro dia de sugestão de lista
-                if(dayOfWeek == Calendar.WEDNESDAY && hour == 8) {
-                    channel.ifPresent(textChannel -> textChannel.sendMessage(sentences.get(0)));
-                } else if (dayOfWeek == Calendar.THURSDAY && hour == 8) { //Quinta, segundo dia
-                    channel.ifPresent(textChannel -> textChannel.sendMessage(sentences.get(1)));
-                } else if(dayOfWeek == Calendar.FRIDAY && hour == 8) { //Sexta, último dia
-                    channel.ifPresent(textChannel -> textChannel.sendMessage(sentences.get(2)));
+                MessageBuilder messages = new MessageBuilder();
+
+                messages.createMessage(MessageBuilder.QUARTA_FEIRA, 9, sentences.get(0));
+                messages.createMessage(MessageBuilder.QUINTA_FEIRA, 9, sentences.get(1));
+                messages.createMessage(MessageBuilder.SEXTA_FEIRA, 9, sentences.get(2));
+
+                for (int i = 0; i < messages.getList().size(); i++) {
+                    diaMensagem = messages.getList().get(i).getDay();
+                    horaMensagem = messages.getList().get(i).getHour();
+                    message = messages.getList().get(i).getMessage();
+
+                    switch (diaMensagem) {
+                        case MessageBuilder.DOMINGO:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                        case MessageBuilder.SEGUNDA_FEIRA:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                        case MessageBuilder.TERCA_FEIRA:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                        case MessageBuilder.QUARTA_FEIRA:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                        case MessageBuilder.QUINTA_FEIRA:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                        case MessageBuilder.SEXTA_FEIRA:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                        case MessageBuilder.SABADO:
+                            if (hourSystem == horaMensagem) {
+                                String finalMessage = message;
+                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
+                            }
+                            break;
+                    }
                 }
-
                 try {
-                    Thread.sleep(3600000 );
+                    Thread.sleep(3600000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
         thread.start();
-        }
     }
+}
 
