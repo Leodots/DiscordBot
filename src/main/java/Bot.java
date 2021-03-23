@@ -45,50 +45,8 @@ public class Bot {
                     horaMensagem = messages.getList().get(i).getHour();
                     message = messages.getList().get(i).getMessage();
 
-                    switch (diaMensagem) {
-                        case MessageBuilder.DOMINGO:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                        case MessageBuilder.SEGUNDA_FEIRA:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                        case MessageBuilder.TERCA_FEIRA:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                        case MessageBuilder.QUARTA_FEIRA:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                        case MessageBuilder.QUINTA_FEIRA:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                        case MessageBuilder.SEXTA_FEIRA:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                        case MessageBuilder.SABADO:
-                            if (hourSystem == horaMensagem) {
-                                String finalMessage = message;
-                                channel.ifPresent(textChannel -> textChannel.sendMessage(finalMessage));
-                            }
-                            break;
-                    }
+                    sendMessage(channel, dayOfWeek, hourSystem, horaMensagem, diaMensagem, message);
+
                 }
                 try {
                     Thread.sleep(3600000);
@@ -98,6 +56,12 @@ public class Bot {
             }
         });
         thread.start();
+    }
+
+    private static void sendMessage(Optional<TextChannel> channel, int dayOfWeek, int hourSystem, int horaMensagem, int diaMensagem, String message) {
+        if (dayOfWeek == diaMensagem && hourSystem == horaMensagem) {
+            channel.ifPresent(textChannel -> textChannel.sendMessage(message));
+        }
     }
 }
 
