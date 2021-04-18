@@ -37,7 +37,6 @@ public class Bot {
 
         api.addMessageCreateListener(event -> {
             if(event.getMessageAuthor().getId() == leodotsId || event.getMessageAuthor().getId() == botId) {
-
                 if(event.getMessageContent().equalsIgnoreCase("#shutdown")) {
                     if(botState.get() == true) {
                         botState.set(false);
@@ -98,10 +97,7 @@ public class Bot {
                         event.getChannel().sendMessage("Você precisa mandar um ID de mensagem válido, vacilão!");
                     }
                 }
-            } else {
-                event.getChannel().sendMessage("QUEM É VOCÊ? Cai fora que você não tem permissão de me usar, só o Leodots tem!");
             }
-
         });
 
         Thread thread = new Thread(() -> {
