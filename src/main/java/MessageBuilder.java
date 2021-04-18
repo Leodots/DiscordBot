@@ -30,7 +30,7 @@ public class MessageBuilder {
     }
 
     public void createMessage(int day, int hour, String message) {
-        list.add(new MessageBuilder(day, hour, message));
+        list.add(new MessageBuilder(day, hour+3, message));
     }
 
     public int getDay() {
